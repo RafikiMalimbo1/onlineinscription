@@ -1,0 +1,206 @@
+{% extends "layout/default.html" %}
+{% block body %}
+<div class='body_wrapper'>
+    <form method='POST' action="">
+        {{formEtu.hidden_tag()}}
+        <fieldset class="form-group">
+            <legend class="borger-bottom mb-4">Inscrire etudiant</legend>
+            <div class="form-group">
+                {{formEtu.nomEtu.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.nomEtu.errors %}
+                {{formEtu.nomEtu(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.nomEtu.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.nomEtu(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.postNomEtu.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.postNomEtu.errors %}
+                {{formEtu.postNomEtu(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.postNomEtu.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.postNomEtu(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.prenomEtu.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.prenomEtu.errors %}
+                {{formEtu.prenomEtu(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.prenomEtu.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.prenomEtu(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.sexeEtu.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.sexeEtu.errors %}
+                {{formEtu.sexeEtu( class='form-control form-control-lg is-invalid petit',)}}<br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.sexeEtu.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.sexeEtu(list ='idsexeList',class = 'form-control-label form-control-lg petit')}}
+                <datalist id='idsexeList'>
+                    {% for entry in sexechoi %}
+                    <option value='{{entry}}'>
+                        {% endfor %}
+                </datalist>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{formEtu.adressEtu.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.adressEtu.errors %}
+                {{formEtu.adressEtu(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.adressEtu.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.adressEtu(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.telEtu.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.telEtu.errors %}
+                {{formEtu.telEtu(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.telEtu.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.telEtu(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.emailEtu.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.emailEtu.errors %}
+                {{formEtu.emailEtu(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.emailEtu.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.emailEtu(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            {# formation #}
+            <hr>
+            <div class="form-group">
+                {{formEtu.intituleFormat.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.intituleFormat.errors %}
+                {{formEtu.intituleFormat(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.intituleFormat.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.intituleFormat(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.dateDebutFormat.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.dateDebutFormat.errors %}
+                {{formEtu.dateDebutFormat(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.dateDebutFormat.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.dateDebutFormat(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.dateFinFormat.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.dateFinFormat.errors %}
+                {{formEtu.dateFinFormat(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.dateFinFormat.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.dateFinFormat(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            {# Annee#}
+            <div class="form-group">
+                {{formEtu.idAnnee.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.idAnnee.errors %}
+                {{formEtu.idAnnee(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.idAnnee.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.idAnnee(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{formEtu.montantInsc.label(class = 'pad form-control-label')}}
+
+                {% if formEtu.montantInsc.errors %}
+                {{formEtu.montantInsc(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formEtu.montantInsc.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formEtu.montantInsc(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{formEtu.submit(class ='btn btn-outline-info')}}
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        {# <small class="text-muted">
+            Already Have An Account? <a href="{{url_for('login')}}">Sign in</a>
+        </small>#}
+    </div>
+</div>
+{% endblock %}

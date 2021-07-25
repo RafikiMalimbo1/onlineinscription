@@ -1,0 +1,62 @@
+{% extends "layout/default.html" %}
+{% block body %}
+<div class="body_wrapper">
+    <form method='POST' action="">
+        {{formLog.hidden_tag()}}
+        <fieldset class="form-group">
+            <legend class="borger-bottom mb-4">Log in</legend>
+            <div class="form-group">
+
+            </div> <br>
+            <div class="form-group">
+                {{formLog.emailForma.label(class = 'form-control-label')}} <br>
+
+                {% if formLog.emailForma.errors %}
+                {{formLog.emailForma(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formLog.emailForma.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formLog.emailForma(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div><br>
+            <div class="form-group">
+                {{formLog.passwordForma.label(class = 'form-control-label')}} <br>
+
+                {% if formLog.passwordForma.errors %}
+                {{formLog.passwordForma(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formLog.passwordForma.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formLog.passwordForma(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div><br>
+            <div class='form-check'>
+                {{formLog.remember(class='form-check-input')}}
+                {{formLog.remember.label(class='form-check-label')}}
+            </div>
+
+        </fieldset>
+        <div class="form-group">
+            {{formLog.submit(class ='btn btn-outline-info')}}
+        </div>
+        <small class='text-muted ml-2'>
+            <a href="#">Forgot PasswordForma?</a>
+        </small>
+    </form>
+    <div class="border-top ">
+        <small class="text-muted">
+            Need An Account? <a href="#">Sign up now</a>
+        </small>
+    </div>
+
+</div>
+
+{% endblock %}
