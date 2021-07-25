@@ -1,0 +1,26 @@
+{% extends "layout/default.html" %}
+{% block body %}
+
+<div class="body_wrapper">
+    <article class="article_wrapper">
+        <div class='right-wrapper'>
+            <div class="head_wrapper">
+
+            </div>
+            <div>
+                <h3 class="title_"><a href="{{url_for('ajoutFormation')}}"> Ajouter une formation</a>
+                </h3>
+                <h3 class="title_"><a href="{{url_for('ajoutAnnee')}}"> Ajouter Une Annee</a>
+                </h3>
+                <h3 class="title_"><a href="{{url_for('inscriptionEtudiant')}}"> Inscrire un etudiant à une
+                        formation</a>
+                </h3>
+            </div>
+        </div>
+
+    </article>
+    <div class="button_pages_wrapper">
+
+    </div>
+</div>
+{% endblock %}

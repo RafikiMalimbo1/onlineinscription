@@ -1,0 +1,50 @@
+{% extends "layout/default.html" %}
+{% block body %}
+<div class='body_wrapper'>
+    <form method='POST' action="">
+        {{paiementForm.hidden_tag()}}
+        <fieldset class="form-group">
+            <legend class="borger-bottom mb-4">Faites un Payement</legend>
+
+            {# formation #}
+            <div class="form-group">
+                {{paiementForm.montantPaie .label(class = 'pad form-control-label')}}
+
+                {% if paiementForm.montantPaie .errors %}
+                {{paiementForm.montantPaie (class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in paiementForm.montantPaie .errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{paiementForm.montantPaie (class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+            <div class="form-group">
+                {{paiementForm.typePaie.label(class = 'pad form-control-label')}}
+
+                {% if paiementForm.typePaie.errors %}
+                {{paiementForm.typePaie(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in paiementForm.typePaie.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{paiementForm.typePaie(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{paiementForm.submit(class ='btn btn-outline-info')}}
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        {# <small class="text-muted">
+            Already Have An Account? <a href="{{url_for('login')}}">Sign in</a>
+        </small>#}
+    </div>
+</div>
+{% endblock %}

@@ -17,11 +17,11 @@
 }
 
 .article_wrapper {
-  width: 500px;
+  width: 600px;
 }
 
 .sidebar_wrapper {
-  width: 350px;
+  width: 250px;
 }
 
 .sidebar_wrapper ul {
@@ -44,7 +44,7 @@
   font-size: 10px;
   color: gray;
 }
-h2 a {
+h3 a {
   text-decoration: none;
   color: black;
 }
@@ -70,4 +70,13 @@ h2 a {
 .button_pages_color {
   background-color: rgb(114, 152, 248);
   color: white;
+}
+
+a {
+  text-decoration: none;
+  font-size: large;
+  color: black;
+}
+a:hover {
+  color: rgb(114, 152, 248);
 }

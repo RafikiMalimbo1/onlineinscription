@@ -65,6 +65,7 @@ body {
 .title_ a:hover {
   color: #1ce;
 }
-/* img {
-  display: none; 
-} */
+.date {
+  color: rgb(59, 59, 163);
+  font-size: 20px;
+}

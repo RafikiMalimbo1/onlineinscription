@@ -1,0 +1,33 @@
+{% extends "layout/default.html" %}
+{% block body %}
+
+<div class="body_wrapper">
+    <article class="article_wrapper">
+        <div class='right-wrapper'>
+            <div class="head_wrapper">
+
+            </div>
+            <div>
+                {% for formation in bdformation.items %}
+                <h3 class="title_"><a href="{{url_for('ajoutFormation')}}"> {{formation.intituleFormat}}</a></h3>
+                {% endfor %}
+
+            </div>
+        </div>
+
+    </article>
+    <div class="button_pages_wrapper">
+        {% for page_num in bdformation.iter_pages(left_edge =1,right_edge
+        =1,left_current= 1, right_current =2) %}{% if page_num %} {% if bdformation.page
+        ==page_num %}
+        <a href="{{url_for('afficheListe', page = page_num)}}" class="button_pages button_pages_color">{{page_num}}</a>
+        {% else %}
+        <a href="{{url_for('afficheListe', page = page_num)}}" class="button_pages">{{page_num}}</a>
+        {% endif %}
+        {% else %}
+        ...
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

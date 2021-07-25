@@ -1,0 +1,66 @@
+{% extends "layout/default.html" %}
+{% block body %}
+
+<div class="body_wrapper">
+    <article class="article_wrapper">
+        <div class='right-wrapper'>
+            <div class="head_wrapper">
+                <small class="author_wrapper"><a
+                        href="{#{{url_for('user_posts',username = post.author.username)}}#}#">{{
+                        insc.authorEtut.nomEtu}}</a></small>
+                {#<small class="verry_smal_wrapper">{{post.date_posted.strftime('%Y-%m-%d')}}</small>#}
+                <div class="updated_button_wrapper">
+                    <div><a href="{{url_for('paiementFormation', idInsc = insc.idInsc)}}#}"
+                            class='updated_button'>Faites un paiement</a>
+                    </div>
+                    <div class="box"> <a class="button_delete" href="#popup1">Delete</a></div>
+                </div>
+            </div>
+            <div>
+                <h2 class="title_"> {{insc.authorForm.intituleFormat}}</h2>
+                <P>Allant du <span class='date'>{{insc.authorForm.dateDebutFormat.strftime('%d-%m-%Y')}} </span> au
+                    <span class="date"> {{insc.authorForm.dateFinFormat.strftime('%d-%m-%Y')}}</span>
+                </P>
+            </div>
+        </div>
+    </article>
+
+    <article class="article_wrapper">
+        <div>
+            <h1>Paiements</h1>
+            <table class="tableListe-wrapper">
+                <thead>
+                    <tr>
+                        <th>Type de paiement</th>
+                        <th>Montant</th>
+                        <th>Date Paiement</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for paie in paiement %}
+                    <tr>
+                        <td>{{paie.typePaie}} </td>
+                        <td>{{paie.montantPaie}} </td>
+                        <td>{{datePaiement.strftime('%d-%m-%Y')}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+    </article>
+</div>
+
+<div id="popup1" class="overlay">
+    <div class="popup">
+        <h2>Voulez-vous supprimer l'inscription de {{insc.authorEtut.nomEtu}}?</h2>
+        <a class="close" href="#">&times;</a>
+        <div class="content">
+            <form action="{{url_for('inscriptionSupprimee',idInsc = insc.idInsc)}}" method="POST">
+                <input type="submit" value="Supprimer" class="button_popup">
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

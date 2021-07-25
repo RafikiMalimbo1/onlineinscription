@@ -5,8 +5,11 @@
         {{formEtu.hidden_tag()}}
         <fieldset class="form-group">
             <legend class="borger-bottom mb-4">Inscrire etudiant</legend>
+            <div class="form-group sous_t">
+                Identités etudiant
+            </div>
             <div class="form-group">
-                {{formEtu.nomEtu.label(class = 'pad form-control-label')}}
+                {{formEtu.nomEtu.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.nomEtu.errors %}
                 {{formEtu.nomEtu(class='form-control form-control-lg is-invalid')}} <br>
@@ -21,7 +24,7 @@
 
             </div>
             <div class="form-group">
-                {{formEtu.postNomEtu.label(class = 'pad form-control-label')}}
+                {{formEtu.postNomEtu.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.postNomEtu.errors %}
                 {{formEtu.postNomEtu(class='form-control form-control-lg is-invalid')}} <br>
@@ -36,7 +39,7 @@
 
             </div>
             <div class="form-group">
-                {{formEtu.prenomEtu.label(class = 'pad form-control-label')}}
+                {{formEtu.prenomEtu.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.prenomEtu.errors %}
                 {{formEtu.prenomEtu(class='form-control form-control-lg is-invalid')}} <br>
@@ -51,7 +54,7 @@
 
             </div>
             <div class="form-group">
-                {{formEtu.sexeEtu.label(class = 'pad form-control-label')}}
+                {{formEtu.sexeEtu.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.sexeEtu.errors %}
                 {{formEtu.sexeEtu( class='form-control form-control-lg is-invalid petit',)}}<br>
@@ -70,7 +73,7 @@
                 {% endif %}
             </div>
             <div class="form-group">
-                {{formEtu.adressEtu.label(class = 'pad form-control-label')}}
+                {{formEtu.adressEtu.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.adressEtu.errors %}
                 {{formEtu.adressEtu(class='form-control form-control-lg is-invalid')}} <br>
@@ -85,7 +88,7 @@
 
             </div>
             <div class="form-group">
-                {{formEtu.telEtu.label(class = 'pad form-control-label')}}
+                {{formEtu.telEtu.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.telEtu.errors %}
                 {{formEtu.telEtu(class='form-control form-control-lg is-invalid')}} <br>
@@ -100,7 +103,7 @@
 
             </div>
             <div class="form-group">
-                {{formEtu.emailEtu.label(class = 'pad form-control-label')}}
+                {{formEtu.emailEtu.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.emailEtu.errors %}
                 {{formEtu.emailEtu(class='form-control form-control-lg is-invalid')}} <br>
@@ -114,71 +117,50 @@
                 {% endif %}
 
             </div>
-            {# formation #}
-            <hr>
-            <div class="form-group">
-                {{formEtu.intituleFormat.label(class = 'pad form-control-label')}}
+            {# Annee#}
+            <hr class='divided'>
+            <div class="form-group sous_t t">
+                Ajouter à une formation
+            </div>
 
+            <div class="form-group">
+                {{formEtu.intituleFormat.label(class = 'form-control-label pad')}}
                 {% if formEtu.intituleFormat.errors %}
-                {{formEtu.intituleFormat(class='form-control form-control-lg is-invalid')}} <br>
+                {{formEtu.intituleFormat( class='form-control form-control-lg is-invalid',)}}<br>
                 <div class="invalid-feedback">
                     {% for error in formEtu.intituleFormat.errors%}
                     <span>{{error}}</span>
                     {% endfor %}
                 </div>
                 {% else %}
-                {{formEtu.intituleFormat(class = 'form-control-label form-control-lg')}}
+                {{formEtu.intituleFormat(list ='listFomation', class = 'form-control-label form-control-lg')}}
+                <datalist id='listFomation'>
+                    {% for entry in bdformation %}
+                    <option value='{{entry.intituleFormat}}'>
+                        {% endfor %}
+                </datalist>
                 {% endif %}
-
             </div>
             <div class="form-group">
-                {{formEtu.dateDebutFormat.label(class = 'pad form-control-label')}}
-
-                {% if formEtu.dateDebutFormat.errors %}
-                {{formEtu.dateDebutFormat(class='form-control form-control-lg is-invalid')}} <br>
-                <div class="invalid-feedback">
-                    {% for error in formEtu.dateDebutFormat.errors%}
-                    <span>{{error}}</span>
-                    {% endfor %}
-                </div>
-                {% else %}
-                {{formEtu.dateDebutFormat(class = 'form-control-label form-control-lg')}}
-                {% endif %}
-
-            </div>
-            <div class="form-group">
-                {{formEtu.dateFinFormat.label(class = 'pad form-control-label')}}
-
-                {% if formEtu.dateFinFormat.errors %}
-                {{formEtu.dateFinFormat(class='form-control form-control-lg is-invalid')}} <br>
-                <div class="invalid-feedback">
-                    {% for error in formEtu.dateFinFormat.errors%}
-                    <span>{{error}}</span>
-                    {% endfor %}
-                </div>
-                {% else %}
-                {{formEtu.dateFinFormat(class = 'form-control-label form-control-lg')}}
-                {% endif %}
-
-            </div>
-            {# Annee#}
-            <div class="form-group">
-                {{formEtu.idAnnee.label(class = 'pad form-control-label')}}
-
+                {{formEtu.idAnnee.label(class = 'form-control-label pad')}}
                 {% if formEtu.idAnnee.errors %}
-                {{formEtu.idAnnee(class='form-control form-control-lg is-invalid')}} <br>
+                {{formEtu.idAnnee( class='form-control form-control-lg is-invalid',)}}<br>
                 <div class="invalid-feedback">
                     {% for error in formEtu.idAnnee.errors%}
                     <span>{{error}}</span>
                     {% endfor %}
                 </div>
                 {% else %}
-                {{formEtu.idAnnee(class = 'form-control-label form-control-lg')}}
+                {{formEtu.idAnnee(list = 'listAnnee' ,class ='form-control-label form-control-lg')}}
+                <datalist id='listAnnee'>
+                    {% for entry in bdannee %}
+                    <option value='{{entry.idAnnee}}'>
+                        {% endfor %}
+                </datalist>
                 {% endif %}
-
             </div>
             <div class="form-group">
-                {{formEtu.montantInsc.label(class = 'pad form-control-label')}}
+                {{formEtu.montantInsc.label(class = 'form-control-label pad')}}
 
                 {% if formEtu.montantInsc.errors %}
                 {{formEtu.montantInsc(class='form-control form-control-lg is-invalid')}} <br>

@@ -1,0 +1,36 @@
+{% extends "layout/default.html" %}
+{% block body %}
+<div class='body_wrapper'>
+    <form method='POST' action="">
+        {{formAnnee.hidden_tag()}}
+        <fieldset class="form-group">
+            <legend class="borger-bottom mb-4">Ajouter une Annee</legend>
+
+            {# Annee#}
+            <div class="form-group">
+                {{formAnnee.idAnnee.label(class = 'pad form-control-label')}}
+
+                {% if formAnnee.idAnnee.errors %}
+                {{formAnnee.idAnnee(class='form-control form-control-lg is-invalid')}} <br>
+                <div class="invalid-feedback">
+                    {% for error in formAnnee.idAnnee.errors%}
+                    <span>{{error}}</span>
+                    {% endfor %}
+                </div>
+                {% else %}
+                {{formAnnee.idAnnee(class = 'form-control-label form-control-lg')}}
+                {% endif %}
+
+            </div>
+        </fieldset>
+        <div class="form-group">
+            {{formAnnee.submit(class ='btn btn-outline-info')}}
+        </div>
+    </form>
+    <div class="border-top pt-3">
+        {# <small class="text-muted">
+            Already Have An Account? <a href="{{url_for('login')}}">Sign in</a>
+        </small>#}
+    </div>
+</div>
+{% endblock %}

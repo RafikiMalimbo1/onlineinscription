@@ -1,4 +1,4 @@
 from inscriptionFormation import app, db
 if __name__ == '__main__':
     db.create_all()
-    app.run(port=2000, debug=True)
+    app.run(port=1000, debug=True)

@@ -1,0 +1,46 @@
+{% extends "layout/default.html" %} {% block body %}
+
+<div class="body_wrapper">
+  <article class="article_wrapper">
+    <table class="tableListe-wrapper">
+      <thead>
+        <tr>
+          <th>Nom</th>
+          <th>PostNom</th>
+          <th>Prenom</th>
+          <th>Formation</th>
+          <th>Annee</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for inscri in inscris.items %}
+        <tr>
+          <td>
+            <a href=" {{url_for('ownerinscri',idInsc = inscri.idInsc)}}">{{inscri.authorEtut.nomEtu}}</a>
+          </td>
+          <td>{{inscri.authorEtut.postNomEtu}} </td>
+          <td>{{inscri.authorEtut.prenomEtu}} </td>
+          <td>{#<a
+              href='{{url_for("afficheListedeFormation", intituleFormat = bdformation.intituleFormat)}}'>#}{{inscri.authorForm.intituleFormat}}{#</a>#}
+          </td>
+          <td>{{inscri.authorAnnee.idAnnee}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </article>
+  <div class="button_pages_wrapper">
+    {% for page_num in inscris.iter_pages(left_edge =1,right_edge
+    =1,left_current= 1, right_current =2) %}{% if page_num %} {% if inscris.page
+    ==page_num %}
+    <a href="{{url_for('afficheListe', page = page_num)}}" class="button_pages button_pages_color">{{page_num}}</a>
+    {% else %}
+    <a href="{{url_for('afficheListe', page = page_num)}}" class="button_pages">{{page_num}}</a>
+    {% endif %}
+    {% else %}
+    ...
+    {% endif %}
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

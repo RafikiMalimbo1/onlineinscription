@@ -33,7 +33,7 @@ form .borger-bottom {
 }
 
 .is-invalid {
-  width: 450px;
+  width: 150px;
   height: 30px;
   border: red;
   box-shadow: red 2px 0.5px 0.4pc;
@@ -54,6 +54,17 @@ form .invalid-feedback {
 .petit {
   width: 50px;
 }
-div .form-group .pad {
+/* div .form-group .pad {
   width: 1000px;
+} */
+.sous_t {
+  font-weight: bold;
 }
+
+.form-group .t {
+  margin-top: 20px;
+}
+
+/* .pad {
+  width: 300px;
+} */
